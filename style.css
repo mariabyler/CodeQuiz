@@ -3,21 +3,18 @@
     margin: 25px; 
     padding: 25px; 
     text-align: center;
-    background-color: grey;
 }
 /* timer styling */
 #timer { 
     margin-right: 0%;
     margin-left: 30%;
     text-align: left;
-    background-color: lightblue; 
 }
 /* high score link styling */
 #hs-link { 
     margin-left: 0%;
     margin-right: 30%;
     text-align: left;
-    background-color: palevioletred;
 }
 
 /* header styling */
