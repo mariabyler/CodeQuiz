@@ -19,3 +19,13 @@
     text-align: left;
     background-color: palevioletred;
 }
+
+/* header styling */
+h1 { 
+    color: #483D8B; 
+}
+
+/* highscore form styling */
+.highscore-form {
+    margin: 50px; 
+}
