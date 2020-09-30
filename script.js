@@ -91,65 +91,7 @@ function startBtn() {
                 
     //         //     //         };
     //     document.getElementById('main-content').appendChild(button);
-    // }
-    
-
-    // document.getElementById("header").innerHTML = "Commonly used data types DO NOT include:"; 
-    // document.getElementById("main-content").innerHTML = "";
-    // var button1 = document.createElement('button'); 
-    //     button1.type = 'button';
-    //     button1.innerHTML = 'strings';
-    //     button1.className = 'btn btn-secondary';
-    //       button1.onclick = function() {
-            
-    //         };
-    // var container = document.getElementById("main-content");
-    // container.appendChild(button1);
-
-
-
-    // document.getElementById("header").innerHTML = "Commonly used data types DO NOT include:"; 
-    // document.getElementById("main-content").innerHTML = "";
-    // var button1 = document.createElement('button'); 
-    //     button1.type = 'button';
-    //     button1.innerHTML = 'strings';
-    //     button1.className = 'btn btn-secondary';
-    //       button1.onclick = function() {
-            
-    //         };
-    // var container = document.getElementById("main-content");
-    // container.appendChild(button1);
-
-    // var button2 = document.createElement('button'); 
-    //     button2.type = 'button';
-    //     button2.innerHTML = 'booleans';
-    //     button2.className = 'btn btn-secondary';
-    //     //   button.onclick = function() {
-            
-    //     //     };
-    // var container = document.getElementById("main-content");
-    // container.appendChild(button2);
-
-    // var button3 = document.createElement('button'); 
-    //     button3.type = 'button';
-    //     button3.innerHTML = 'alerts';
-    //     button3.className = 'btn btn-secondary';
-    //     //   button.onclick = function() {
-            
-    //     //     };
-    // var container = document.getElementById("main-content");
-    // container.appendChild(button3);
-
-    // var button4 = document.createElement('button'); 
-    //     button4.type = 'button';
-    //     button4.innerHTML = 'numbers';
-    //     button4.className = 'btn btn-secondary';
-    //     //   button.onclick = function() {
-            
-    //     //     };
-    // var container = document.getElementById("main-content");
-    // container.appendChild(button4);
-
+    // }  
 } 
 
 console.log(startBtn); 
