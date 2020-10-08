@@ -6,31 +6,68 @@ var seconds = 60;
 // .indexof 
 var questions = [
     {
-        ques: "1+1",
-        options: [1, 2, 3, 4],  
-        answer: 2,
+        text: "1+1",
+        choiceA: "2",
+        choiceB: "3", 
+        choiceC: "4",  
+        answer: "A",
     }, 
     {
-        ques: "1+2",
-        options: [1, 2, 3, 4],  
-        answer: 3,
+        text: "1+1",
+        choiceA: "2",
+        choiceB: "3", 
+        choiceC: "4",  
+        answer: "A",
     }, 
     {
-        ques: "1+3",
-        options: [1, 2, 3, 4],  
-        answer: 4,
+        text: "1+1",
+        choiceA: "2",
+        choiceB: "3", 
+        choiceC: "4",  
+        answer: "A",
     },  
     {
-        ques: "2+1",
-        options: [1, 2, 3, 4],  
-        answer: 3,
+        text: "1+1",
+        choiceA: "2",
+        choiceB: "3", 
+        choiceC: "4",  
+        answer: "A",
     }, 
     {
-        ques: "3+1",
-        options: [1, 2, 3, 4],  
-        answer: 4,
+        text: "1+1",
+        choiceA: "2",
+        choiceB: "3", 
+        choiceC: "4",  
+        answer: "A",
     }
-    ];  
+    ]; 
+    
+    //  function to define question rendering 
+    function questionRender () {
+        var questionRender = document.createElement('p'); 
+            questionRender.type = 'p';
+            questionRender.innerHTML = "questionsOptions";
+            questionRender.className = 'unique';
+            document.getElementById('header').appendChild(questionRender);
+    }
+ 
+//  function to render button 
+    function buttonRender () {
+        var buttonsWanted = 3;
+        for(var x = 0; x < buttonsWanted; x++){
+            var button = document.createElement('button'); 
+            button.type = 'button';
+            button.innerHTML = "questionsOptions";
+            button.className = 'btn btn-secondary';
+            document.getElementById('main-content').appendChild(button);
+        }
+    }
+
+    //function to load questions
+    function loadQuestion () { 
+            questionRender(); 
+            buttonRender(); 
+    }
 
 // function that runs when you click start button 
 function startBtn() {
@@ -40,8 +77,6 @@ function startBtn() {
         elem.parentNode.removeChild(elem);
         return false;
     }
-    console.log(removeStartBtn); 
-
     // starts timer, if/then statement to keep timer from restarting every time start button is clicked
     var element= document.querySelector("#start") 
         if (element.classList.contains("active")) {
@@ -54,44 +89,18 @@ function startBtn() {
     }  
 
     // function to remove start button called
-    removeStartBtn(); 
+    removeStartBtn();  
 
     // replaces content of main div with dynamically generated html
     document.getElementById("header").innerHTML = "Commonly used data types DO NOT include:"; 
     document.getElementById("main-content").innerHTML = ""; 
 
-    var buttonsWanted = 4;
-    var questionsOptions = function questionSelector () {
-        for(var i=0; i < questions.length; i++) {
-            console.log("question", question[i]); 
-        // if (questions[0].ques == value) return questions[i];
-        // }
-        }
-    }
+    // calling function to load 1st question
+    loadQuestion (); 
+
+ // if (questions[0].ques == value) return questions[i];
 
 
-    for(var x = 0; x < buttonsWanted; x++){
-        var button = document.createElement('button'); 
-        button.type = 'button';
-        button.innerHTML = questionsOptions;
-        button.className = 'btn btn-secondary';
-            // button1.onclick = function() {
-                
-            //     //         };
-        document.getElementById('main-content').appendChild(button);
-    }
-    console.log(questions[0].ques);
-
-    // for(var x = 0; x < buttonsWanted; x++){
-    //     var button = document.createElement('button'); 
-    //     button.type = 'button';
-    //     button.innerHTML = questions[0];
-    //     button.className = 'btn btn-secondary';
-    //         // button1.onclick = function() {
-                
-    //         //     //         };
-    //     document.getElementById('main-content').appendChild(button);
-    // }  
 } 
 
 console.log(startBtn); 
