@@ -54,6 +54,20 @@ var questionList = [{//0
     correct: "C"
 }];
 
+//variable for lastquestion reference that will be used to identify position
+var lastQuestion = questionList.length - 1;
+var time = lastQuestion * 5;
+
+// timer
+function countdown() {
+    timeEl.textContent = 'Time:' + timer;
+    if (timer > 0) {
+        timer--
+    } else {
+        endofgame()
+    }
+
+}
 
 
 // // start button function called
