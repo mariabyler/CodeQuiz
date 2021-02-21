@@ -21,7 +21,7 @@ var questionList = [{//0
     question: 'Commonly used data types DO NOT include',//.question
     choiceA: 'alerts',//.ChoiceA
     choiceB: 'booleans',
-    choiceC: 'alerts',
+    choiceC: 'numbers',
     correct: "A"
 },
 {//1
@@ -34,14 +34,14 @@ var questionList = [{//0
 },
 {//2
     question: 'Arrays in Javascript can be used to store...',
-    choiceA: 'numberss and strings',
+    choiceA: 'numbers and strings',
     choiceB: 'booleans',
     choiceC: 'both',
     correct: "C"
 },
 {//3
     question: 'String values must be enclosed within ____ when being assigned to variables',
-    choiceA: 'parantheses',
+    choiceA: 'parentheses',
     choiceB: 'curly brackets',
     choiceC: 'commas',
     correct: "C"
@@ -56,7 +56,7 @@ var questionList = [{//0
 
 //variable for lastquestion reference that will be used to identify position
 var lastQuestion = questionList.length - 1;
-var time = lastQuestion * 5;
+var timer = lastQuestion * 5;
 
 // timer
 function countdown() {
@@ -69,134 +69,76 @@ function countdown() {
 
 }
 
+//hide initial content and display dynamically generated 
+choicesEl.style.display = 'none';
+endTextEl.style.display = 'none';
 
-// // start button function called
-// var start = document.getElementById("start").addEventListener("click", startBtn); 
-// // timer set
-// var seconds = 60;
-// // array of objects
-// // look up .indexof 
-// var questions = [
-//     {
-//         text: "1+1",
-//         choiceA: "2",
-//         choiceB: "3", 
-//         choiceC: "4",  
-//         answer: "A",
-//     }, 
-//     {
-//         text: "1+1",
-//         choiceA: "2",
-//         choiceB: "3", 
-//         choiceC: "4",  
-//         answer: "A",
-//     }, 
-//     {
-//         text: "1+1",
-//         choiceA: "2",
-//         choiceB: "3", 
-//         choiceC: "4",  
-//         answer: "A",
-//     },  
-//     {
-//         text: "1+1",
-//         choiceA: "2",
-//         choiceB: "3", 
-//         choiceC: "4",  
-//         answer: "A",
-//     }, 
-//     {
-//         text: "1+1",
-//         choiceA: "2",
-//         choiceB: "3", 
-//         choiceC: "4",  
-//         answer: "A",
-//     }
-//     ]; 
-    
-//     //  function to define question rendering 
-//     function questionRender () {
-//         var questionRender = document.createElement('p'); 
-//             questionRender.type = 'p';
-//             for(var m = 0; m < questions.length; m++){
-//                 questionRender.innerHTML = questions[m].text; 
-//             }; 
-//             questionRender.className = 'unique';
-//             document.getElementById('header').appendChild(questionRender);
-//     }
+//calls the object question list
+function renderQuestions() {
+    var c = questionList[runningQuestion];
+    questionEl.textContent = questionList[runningQuestion].question;
+    choiceA.innerHTML = c.choiceA;
+    choiceB.innerHTML = c.choiceB;
+    choiceC.innerHTML = c.choiceC;
  
-// //  function to render button 
-//     function buttonRender () {
-//         // var buttonsWanted = 3;
-//         // for(var x = 0; x < buttonsWanted; x++){}
-//         var button1 = document.createElement('button'); 
-//             button1.type = 'button';
-//             for(var n = 0; n < questions.length; n++){
-//                 button1.innerHTML = questions[n].choiceA; 
-//             }; 
-//             button1.className = 'btn btn-secondary userChoice';
-//             document.getElementById('main-content').appendChild(button1);
+}
 
-//         var button2 = document.createElement('button'); 
-//             button2.type = 'button';
-//             for(var o = 0; o < questions.length; o++){
-//                 button2.innerHTML = questions[o].choiceB; 
-//             }; 
-//             button2.className = 'btn btn-secondary userChoice';
-//             document.getElementById('main-content').appendChild(button2);
+// event listener which begins the quiz
+StartEl.addEventListener("click", startQuiz);
 
-//         var button3 = document.createElement('button'); 
-//             button3.type = 'button';
-//             for(var p = 0; p < questions.length; p++){
-//                 button3.innerHTML = questions[p].choiceC; 
-//             }; 
-//             button3.className = 'btn btn-secondary userChoice';
-//             document.getElementById('main-content').appendChild(button3);
-//     }
+//function of the event listener
+function startQuiz() {
+    start.style.display = "none";
 
-//     //function to load questions
-//     function loadQuestion () { 
-//             questionRender(); 
-//             buttonRender(); 
-//     }
+    choicesEl.style.display = 'block';
 
-// // function that runs when you click start button 
-// function startBtn() {
-//     // function to remove start button 
-//     function removeStartBtn() {
-//         var elem = document.getElementById("start");
-//         elem.parentNode.removeChild(elem);
-//         return false;
-//     }
-//     // starts timer, if/then statement to keep timer from restarting every time start button is clicked
-//     var element= document.querySelector("#start") 
-//         if (element.classList.contains("active")) {
-//         } 
-//         else {
-//          setInterval(function() {
-//             document.getElementById("timer").innerHTML = "time: " + seconds--;
-//             }, 1000);
-//         document.getElementById("start").classList.add("active"); 
-//     }  
+    timerobject = setInterval(countdown, 1000)
+    renderQuestions();
 
-//     // function to remove start button called
-//     removeStartBtn();  
+};
+// validates answers and keeps questions on going
+function checkAnswer(userChoice) {
+    console.log(userChoice)
+    if (userChoice == questionList[runningQuestion].correct) {
+        captionEl.innerText = 'Correct Answer'
+        correctAnswer++
+    } else {
+        captionEl.innerText = 'Wrong Answer'
+        wrongAnswer++;
+        //decreasing time on timer when user gets question wrong
+        timer--
+    }
+    if (runningQuestion < lastQuestion) {
+        runningQuestion++
+        renderQuestions();
+    } else {
+        console.log('correct answer:', correctAnswer);
+        endofgame();
+    }
+}
 
-//     // replaces clear header and main content 
-//     document.getElementById("header").innerHTML = ""; 
-//     document.getElementById("main-content").innerHTML = ""; 
-
-//     // calling function to load 1st question
-//     loadQuestion (); 
-
-//     // function to determine if user chose correct answer..only loads if I click 1st button
-//     function questionAuthentication () {
-//         console.log("user selection even listener is working...pls God")
-//     } 
-//     document.querySelector(".userChoice").addEventListener("click", questionAuthentication);
-
-//  // if (questions[0].ques == value) return questions[i];
+//hides content and clears timer
+function endofgame() {
+    choicesEl.style.display = "none";
+    questionEl.style.display = "none";
+    endTextEl.style.display = 'block';
+    captionEl.style.display = 'none';
+    clearInterval(timerobject)
+}
 
 
-// } 
+function user() {
+    var userInitials = document.getElementById('userInitials').value
+    // console.log(userInitials);
+    savedata.push({
+        user: userInitials,
+        score: correctAnswer,
+        time: 10 - timerobject,
 
+    })
+
+    //save to local storage
+    localStorage.setItem('data', JSON.stringify(savedata))
+    endTextEl.innerHTML = '<h1> Thank you for playing </h1>'
+    highscoreEl.innerHTML = ('View Highscore:' + ' ' + JSON.parse(localStorage.getItem('data'))[0].score);
+}

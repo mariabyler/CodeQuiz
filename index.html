@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-lg-2 ml-auto">
                     <p id="hs">
-                        View Highscores
+                        Highscore:
                     </p>
                 </div>
                 <div class="col-lg-2 mr-auto" id="timer">
@@ -36,15 +36,15 @@
                         <h3 class="text-center" id="main-content">Test your coding knowledge! Click start to begin the quiz.</h3>
                         <ol id="choices-quiz">
     
-                            <button>
+                            <button type="button" class="btn btn-info">
                                 <li class="choice" id="A" onclick="checkAnswer('A')"></li>
                             </button> <br>
     
-                            <button>
+                            <button type="button" class="btn btn-info">
                                 <li class="choice" id="B" onclick="checkAnswer('B')"></li>
-                            </button> <br>
+                            </button type="button" class="btn btn-info"> <br>
     
-                            <button>
+                            <button type="button" class="btn btn-info">
                                 <li class="choice" id="C" onclick="checkAnswer('C')"></li>
                             </button>
     
@@ -58,7 +58,7 @@
             <div id='endText'>
                 <label>Enter Initials</label>
                 <input type="text" id='userInitials'>
-                <button id="user" onclick='user()'> user details</button>
+                <button id="user" onclick='user()'>Save</button>
             </div>
             <div id="scoreContainer" style="display: none"></div>
 
