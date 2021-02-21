@@ -1,3 +1,20 @@
+var questionEl = document.querySelector('#main-content')
+var choicesEl = document.querySelector('#choices-quiz')
+var StartEl = document.getElementById("start")
+var choiceA = document.getElementById("A");
+var choiceB = document.getElementById("B");
+var choiceC = document.getElementById("C");
+var captionEl = document.getElementById("caption");
+var highscoreEl = document.getElementById('hs');
+var endTextEl = document.getElementById('endText');
+var runningQuestion = 0;
+var correctAnswer = 0;
+var wrongAnswer = 0;
+var timerobject = '';
+
+var savedata = JSON.parse(localStorage.getItem('data')) || []
+var timeEl = document.getElementById('timer');
+
 // start button function called
 var start = document.getElementById("start").addEventListener("click", startBtn); 
 // timer set
