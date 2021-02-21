@@ -32,11 +32,38 @@
             <div class="row main-div">
                 <div class="col-lg-6 mx-auto">
                     <h1 id="header">Code Quiz Challenge</h1>
-                    <p id="main-content">
-                        Test your coding knowledge! Click start to begin the quiz. 
-                    </p>
+                    <section>
+                        <h3 class="text-center" id="main-content">Test your coding knowledge! Click start to begin the quiz.</h3>
+                        <ol id="choices-quiz">
+    
+                            <button>
+                                <li class="choice" id="A" onclick="checkAnswer('A')"></li>
+                            </button> <br>
+    
+                            <button>
+                                <li class="choice" id="B" onclick="checkAnswer('B')"></li>
+                            </button> <br>
+    
+                            <button>
+                                <li class="choice" id="C" onclick="checkAnswer('C')"></li>
+                            </button>
+    
+                        </ol>
+                        <h2 id='caption'></h2>
+                    </section>
                     <button id="start" type="button" class="btn btn-info">Start</button>
                 </div>
+            <div class='row'>
+        <div class='col-md-12 text-center'>
+            <div id='endText'>
+                <label>Enter Initials</label>
+                <input type="text" id='userInitials'>
+                <button id="user" onclick='user()'> user details</button>
+            </div>
+            <div id="scoreContainer" style="display: none"></div>
+
+        </div>
+            </div> 
             </div>
             <!-- end main content -->
         </div>

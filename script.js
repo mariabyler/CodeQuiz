@@ -62,7 +62,7 @@ var questions = [
             for(var n = 0; n < questions.length; n++){
                 button1.innerHTML = questions[n].choiceA; 
             }; 
-            button1.className = 'btn btn-secondary';
+            button1.className = 'btn btn-secondary userChoice';
             document.getElementById('main-content').appendChild(button1);
 
         var button2 = document.createElement('button'); 
@@ -70,7 +70,7 @@ var questions = [
             for(var o = 0; o < questions.length; o++){
                 button2.innerHTML = questions[o].choiceB; 
             }; 
-            button2.className = 'btn btn-secondary';
+            button2.className = 'btn btn-secondary userChoice';
             document.getElementById('main-content').appendChild(button2);
 
         var button3 = document.createElement('button'); 
@@ -78,7 +78,7 @@ var questions = [
             for(var p = 0; p < questions.length; p++){
                 button3.innerHTML = questions[p].choiceC; 
             }; 
-            button3.className = 'btn btn-secondary';
+            button3.className = 'btn btn-secondary userChoice';
             document.getElementById('main-content').appendChild(button3);
     }
 
@@ -116,6 +116,12 @@ function startBtn() {
 
     // calling function to load 1st question
     loadQuestion (); 
+
+    // function to determine if user chose correct answer..only loads if I click 1st button
+    function questionAuthentication () {
+        console.log("user selection even listener is working...pls God")
+    } 
+    document.querySelector(".userChoice").addEventListener("click", questionAuthentication);
 
  // if (questions[0].ques == value) return questions[i];
 
